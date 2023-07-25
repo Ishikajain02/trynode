@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 const fs = require('fs');
 const data = JSON.parse(fs.readFileSync('data.json','utf-8'));
 //const data = fetch('https://dummyjson.com/products');
@@ -6,6 +6,7 @@ const data = JSON.parse(fs.readFileSync('data.json','utf-8'));
 const products = data.products;
 const express = require ('express')
 const server = express();
+console.log('env', process.env.DB_PASSWORD)
 //using middleware morgan
 //const morgan = require('morgan');
 //server.use(morgan ('default'));
@@ -31,6 +32,7 @@ server.use( (req,res,next)=>{
 //}
 //server.use(auth);
 //products
+//model view controller
 
 server.get('/products', (req,res)=>{
    // res.send('hiiii')
